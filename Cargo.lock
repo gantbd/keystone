@@ -65,6 +65,7 @@ version = "0.0.1"
 name = "moira-core"
 version = "0.0.1"
 dependencies = [
+ "keystone-codec",
  "keystone-effects",
  "keystone-observe",
 ]

@@ -1,0 +1,29 @@
+[workspace]
+members = [
+    "crates/keystone-bounds",
+    "crates/keystone-codec",
+    "crates/keystone-effects",
+    "crates/keystone-storage",
+    "crates/keystone-storage-memory",
+    "crates/keystone-storage-directory",
+    "crates/keystone-observe",
+    "crates/keystone-redact",
+    "crates/keystone-lifecycle",
+    "crates/keystone-testkit",
+    "qualification/chronos-moira",
+]
+resolver = "3"
+
+[workspace.package]
+version = "0.0.1"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+all = "warn"
+

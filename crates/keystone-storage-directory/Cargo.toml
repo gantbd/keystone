@@ -1,0 +1,15 @@
+[package]
+name = "keystone-storage-directory"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Scaffold for a qualified directory storage adapter"
+
+[dependencies]
+keystone-storage = { path = "../keystone-storage" }
+
+[lints]
+workspace = true
+

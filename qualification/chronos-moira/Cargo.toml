@@ -1,0 +1,17 @@
+[package]
+name = "keystone-qualification-chronos-moira"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+description = "Cross-project semantic qualification for Keystone effect evidence"
+
+[dependencies]
+chronos-engine = { path = "../../../chronos" }
+keystone-effects = { path = "../../crates/keystone-effects" }
+moira-core = { path = "../../../moira" }
+
+[lints]
+workspace = true
+

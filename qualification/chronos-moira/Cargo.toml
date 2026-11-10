@@ -1,17 +1,25 @@
+[workspace]
+members = ["."]
+resolver = "3"
+
 [package]
 name = "keystone-qualification-chronos-moira"
-version.workspace = true
-edition.workspace = true
-rust-version.workspace = true
-license.workspace = true
+version = "0.0.1"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/gantbd/keystone"
 publish = false
 description = "Cross-project semantic qualification for Keystone effect evidence"
 
 [dependencies]
-chronos-engine = { path = "../../../chronos" }
-keystone-effects = { path = "../../crates/keystone-effects" }
-moira-core = { path = "../../../moira" }
+chronos-engine = { version = "=0.3.0", path = "../../../chronos" }
+keystone-effects = { version = "=0.0.1", path = "../../crates/keystone-effects" }
+moira-core = { version = "=0.0.1", path = "../../../moira" }
 
-[lints]
-workspace = true
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
 

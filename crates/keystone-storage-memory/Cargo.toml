@@ -4,11 +4,12 @@ version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
 license.workspace = true
+repository.workspace = true
 publish.workspace = true
 description = "Truthful volatile reference storage adapters"
 
 [dependencies]
-keystone-storage = { path = "../keystone-storage" }
+keystone-storage = { version = "=0.0.1", path = "../keystone-storage" }
 
 [lints]
 workspace = true

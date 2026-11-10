@@ -3,10 +3,6 @@
 version = 4
 
 [[package]]
-name = "chronos-engine"
-version = "0.2.0"
-
-[[package]]
 name = "keystone-bounds"
 version = "0.0.1"
 
@@ -25,15 +21,6 @@ version = "0.0.1"
 [[package]]
 name = "keystone-observe"
 version = "0.0.1"
-
-[[package]]
-name = "keystone-qualification-chronos-moira"
-version = "0.0.1"
-dependencies = [
- "chronos-engine",
- "keystone-effects",
- "moira-core",
-]
 
 [[package]]
 name = "keystone-redact"
@@ -60,12 +47,3 @@ dependencies = [
 [[package]]
 name = "keystone-testkit"
 version = "0.0.1"
-
-[[package]]
-name = "moira-core"
-version = "0.0.1"
-dependencies = [
- "keystone-codec",
- "keystone-effects",
- "keystone-observe",
-]

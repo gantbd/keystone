@@ -58,3 +58,26 @@ claim.
 make check
 ```
 
+The production workspace is self-contained: a fresh checkout needs no sibling
+engine repositories. Cross-project Chronos/Moira qualification is deliberately
+standalone and can be run from a checkout containing all three repositories:
+
+```sh
+make qualify-chronos-moira
+```
+
+## Distribution
+
+Keystone is source-distributed from GitHub and is not published to crates.io.
+Consumers select only the mechanisms they use and pin one reviewed commit, for
+example:
+
+```toml
+[dependencies]
+keystone-codec = { git = "https://github.com/gantbd/keystone", rev = "<full-commit-sha>" }
+```
+
+Tags may identify reviewed repository states, but consumers retain the immutable
+commit pin in their lockfile. Keystone has no installation binary and grants no
+domain authority merely by being linked.
+

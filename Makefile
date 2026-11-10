@@ -1,6 +1,9 @@
-.PHONY: check fmt lint test doc
+.PHONY: check check-boundaries fmt lint test doc qualify-chronos-moira
 
-check: fmt lint test doc
+check: check-boundaries fmt lint test doc
+
+check-boundaries:
+	node scripts/check-project-boundaries.mjs
 
 fmt:
 	cargo fmt --all -- --check
@@ -14,4 +17,7 @@ test:
 doc:
 	cargo test --workspace --doc --locked --offline
 	RUSTDOCFLAGS="-D warnings" cargo doc --workspace --no-deps --locked --offline
+
+qualify-chronos-moira:
+	cargo test --manifest-path qualification/chronos-moira/Cargo.toml --all-targets --locked --offline
 

@@ -10,15 +10,16 @@ members = [
     "crates/keystone-redact",
     "crates/keystone-lifecycle",
     "crates/keystone-testkit",
-    "qualification/chronos-moira",
 ]
 resolver = "3"
+exclude = ["qualification/chronos-moira"]
 
 [workspace.package]
 version = "0.0.1"
 edition = "2024"
 rust-version = "1.95"
 license = "MIT OR Apache-2.0"
+repository = "https://github.com/gantbd/keystone"
 publish = false
 
 [workspace.lints.rust]

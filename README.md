@@ -45,6 +45,13 @@ its own exhaustive command/refusal vocabulary, counters and workflow gauges.
 Its enabled zero-capacity recorder counts overload; explicit disabled capture does
 not. Neither adoption introduces a clock, callback or domain semantics here.
 
+Vellum consumes the narrow `keystone-codec` cursor and byte-field primitives
+behind its own versioned wire anti-corruption layer. Vellum owns all schema tags,
+bounds, identity and UTF-8 validation, compatibility, and disclosure policy.
+The [qualification record](docs/vellum-codec-qualification.md) scopes the golden
+and adversarial evidence; it is not a daemon, transport, or general codec-tooling
+claim.
+
 ## Development
 
 ```sh

@@ -18,7 +18,8 @@
 | --- | --- | --- | --- | --- |
 | Effect knowledge | Chronos local lattice | Moira direct dependency/re-export | exhaustive cross-project mapping and operation comparison | Qualified |
 | FIFO diagnostic capture | Vellum recorder storage | Vellum direct dependency; Keystone append-only compatibility facade | shared queue boundary/clone/FIFO/loss tests; Vellum instrumentation, measurement and timing scenarios | Narrow Vellum adoption; no general cross-engine qualification |
-| Bounds, codec, storage, observation, clock, lifecycle, redaction | Chronos candidates | none selected | explicit mismatch analysis | Not qualified |
+| Bounded codec cursor and byte fields | Keystone reference tests | Vellum V1 wire codec | golden octets, all truncations, exact limits, invalid versions/tags/IDs/UTF-8, closed variant round trips | Narrow Vellum qualification |
+| Bounds, storage, observation, clock, lifecycle, redaction | Chronos candidates | none selected | explicit mismatch analysis | Not qualified |
 
 No current evidence establishes filesystem crash durability, power-loss behavior,
 cryptographic integrity, production performance, or downstream compatibility

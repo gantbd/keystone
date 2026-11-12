@@ -1,8 +1,15 @@
-//! Bounded, non-authoritative observation storage. Event meaning stays with
-//! consumers; this crate reads no clock and invokes no subscribers or exporters.
+//! Bounded, non-authoritative observation storage and sticky saturating
+//! accumulators. Event and metric meaning stays with consumers; this crate
+//! reads no clock and invokes no subscribers or exporters.
 
 mod capture;
+mod histogram;
+mod saturation;
 pub use capture::{Capture, CaptureBuffer};
+pub use histogram::{
+    FixedDurationHistogram, FixedDurationHistogramBuildError, FixedDurationHistogramSnapshot,
+};
+pub use saturation::{Accumulation, DurationAccumulator, SaturatingCounter};
 
 /// Compatibility append-only facade. `new(0)` still counts every offer as loss;
 /// `events()` keeps its contiguous borrowed slice. For fallible construction,

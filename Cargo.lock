@@ -27,6 +27,10 @@ name = "keystone-redact"
 version = "0.0.1"
 
 [[package]]
+name = "keystone-replay"
+version = "0.0.1"
+
+[[package]]
 name = "keystone-storage"
 version = "0.0.1"
 

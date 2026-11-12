@@ -12,6 +12,7 @@ const expected = new Set([
   "crates/keystone-lifecycle",
   "crates/keystone-observe",
   "crates/keystone-redact",
+  "crates/keystone-replay",
   "crates/keystone-storage",
   "crates/keystone-storage-directory",
   "crates/keystone-storage-memory",

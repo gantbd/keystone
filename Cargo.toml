@@ -7,6 +7,7 @@ members = [
     "crates/keystone-storage-memory",
     "crates/keystone-storage-directory",
     "crates/keystone-observe",
+    "crates/keystone-replay",
     "crates/keystone-redact",
     "crates/keystone-lifecycle",
     "crates/keystone-testkit",

@@ -23,5 +23,7 @@ jobs:
           persist-credentials: false
       - name: Install pinned Rust toolchain
         run: rustup toolchain install 1.95.0 --profile minimal --component clippy,rustfmt
+      - name: Fetch locked dependencies
+        run: cargo fetch --locked
       - name: Verify production workspace
         run: make check

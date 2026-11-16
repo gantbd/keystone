@@ -100,6 +100,10 @@ registries; matching outcomes alone do not establish a shared mechanism.
 make check
 ```
 
+See [CONTRIBUTING.md](CONTRIBUTING.md) for scope and validation expectations.
+Security-sensitive findings should follow [SECURITY.md](SECURITY.md) rather
+than being opened publicly.
+
 The production workspace is self-contained: a fresh checkout needs no sibling
 engine repositories. Cross-project qualification is deliberately standalone
 and can be run from a checkout containing the relevant sibling repositories:
@@ -125,4 +129,7 @@ keystone-codec = { git = "https://github.com/gantbd/keystone", rev = "<full-comm
 Tags may identify reviewed repository states, but consumers retain the immutable
 commit pin in their lockfile. Keystone has no installation binary and grants no
 domain authority merely by being linked.
+
+Changes are recorded in [CHANGELOG.md](CHANGELOG.md). Keystone is available
+under either the Apache License 2.0 or the MIT License, at your option.
 

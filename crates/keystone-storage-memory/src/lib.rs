@@ -4,7 +4,8 @@ use std::collections::BTreeMap;
 use std::convert::Infallible;
 
 use keystone_storage::{
-    Checkpoint, CheckpointStore, CommitOutcome, CommitReceipt, Revision, StoreRefusal,
+    AcknowledgementStrength, Checkpoint, CheckpointStore, CommitOutcome, CommitReceipt, Revision,
+    StoreRefusal,
 };
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -15,11 +16,21 @@ pub struct VolatileLimits {
     pub max_total_bytes: usize,
 }
 
-#[derive(Debug)]
 pub struct VolatileCheckpointStore {
     limits: VolatileLimits,
     entries: BTreeMap<String, Checkpoint>,
     retained_bytes: usize,
+}
+
+impl std::fmt::Debug for VolatileCheckpointStore {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("VolatileCheckpointStore")
+            .field("limits", &self.limits)
+            .field("entries", &self.entries.len())
+            .field("retained_bytes", &self.retained_bytes)
+            .finish()
+    }
 }
 
 impl VolatileCheckpointStore {
@@ -102,12 +113,14 @@ impl CheckpointStore for VolatileCheckpointStore {
             Checkpoint {
                 revision,
                 bytes: bytes.to_vec(),
+                strength: AcknowledgementStrength::Volatile,
             },
         );
         self.retained_bytes = next_retained_bytes;
         Ok(CommitOutcome::Committed(CommitReceipt {
             revision,
             mechanism: "volatile-process-memory-v1",
+            strength: AcknowledgementStrength::Volatile,
         }))
     }
 }
@@ -159,5 +172,22 @@ mod tests {
         );
         assert_eq!(store.load("key").unwrap(), before);
         assert_eq!(store.retained_bytes(), 4);
+    }
+
+    #[test]
+    fn volatile_receipts_and_loads_never_claim_durability_and_debug_redacts_content() {
+        let mut store = store();
+        let CommitOutcome::Committed(receipt) =
+            store.compare_exchange("key", None, b"data").unwrap()
+        else {
+            panic!("commit expected");
+        };
+        assert_eq!(receipt.strength, AcknowledgementStrength::Volatile);
+        let checkpoint = store.load("key").unwrap().unwrap();
+        assert_eq!(checkpoint.strength, AcknowledgementStrength::Volatile);
+        assert!(!format!("{checkpoint:?}").contains("data"));
+        let debug = format!("{store:?}");
+        assert!(!debug.contains("\"key\""));
+        assert!(!debug.contains("data"));
     }
 }

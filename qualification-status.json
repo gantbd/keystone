@@ -1,0 +1,133 @@
+{
+  "schema": 2,
+  "crates": {
+    "keystone-bounds": {
+      "profiles": {
+        "bounded-values": {
+          "status": "reference",
+          "evidence": ["ROADMAP.production.md"]
+        }
+      }
+    },
+    "keystone-codec": {
+      "profiles": {
+        "bounded-cursor-and-byte-fields": {
+          "status": "adopted",
+          "evidence": ["docs/vellum-codec-qualification.md"]
+        },
+        "codec-assurance-test-helpers": {
+          "status": "reference",
+          "evidence": ["ROADMAP.production.md"]
+        }
+      }
+    },
+    "keystone-effects": {
+      "profiles": {
+        "four-value-effect-evidence": {
+          "status": "qualified",
+          "evidence": ["docs/chronos-qualification.md"]
+        }
+      }
+    },
+    "keystone-framing": {
+      "profiles": {
+        "bounded-request-reply-framing": {
+          "status": "qualified",
+          "evidence": ["docs/bounded-framing.md"]
+        }
+      }
+    },
+    "keystone-lifecycle": {
+      "profiles": {
+        "obligation-ledger": {
+          "status": "reference",
+          "evidence": ["ROADMAP.production.md"]
+        }
+      }
+    },
+    "keystone-observe": {
+      "profiles": {
+        "bounded-fifo-capture": {
+          "status": "adopted",
+          "evidence": ["README.md", "docs/traceability.md"]
+        },
+        "saturating-counter": {
+          "status": "qualified",
+          "evidence": ["docs/observation-accumulators.md"]
+        },
+        "clamping-duration-accumulator": {
+          "status": "adopted",
+          "evidence": ["docs/observation-accumulators.md"]
+        },
+        "bounded-histogram": {
+          "status": "reference",
+          "evidence": ["ROADMAP.production.md"]
+        }
+      }
+    },
+    "keystone-redact": {
+      "profiles": {
+        "content-safe-debug-wrapper": {
+          "status": "reference",
+          "evidence": ["ROADMAP.production.md"]
+        }
+      }
+    },
+    "keystone-replay": {
+      "profiles": {
+        "exact-input-retained-replay": {
+          "status": "adopted",
+          "evidence": ["docs/replay-register.md"]
+        }
+      }
+    },
+    "keystone-storage": {
+      "profiles": {
+        "revisioned-checkpoint-protocol": {
+          "status": "qualified",
+          "evidence": ["docs/local-checkpoint.md", "docs/traceability.md"]
+        },
+        "serialized-owner-publication-gate": {
+          "status": "qualified",
+          "evidence": ["docs/aegis-hermes-publication-gate.md"]
+        },
+        "append-and-immutable-blob-contracts": {
+          "status": "reference",
+          "evidence": ["ROADMAP.production.md"]
+        }
+      }
+    },
+    "keystone-storage-directory": {
+      "profiles": {
+        "private-exclusive-local-unix-checkpoint": {
+          "status": "qualified",
+          "evidence": ["docs/local-checkpoint.md"]
+        }
+      }
+    },
+    "keystone-storage-memory": {
+      "profiles": {
+        "volatile-checkpoint-reference-adapter": {
+          "status": "reference",
+          "evidence": ["docs/traceability.md"]
+        }
+      }
+    },
+    "keystone-testkit": {
+      "profiles": {
+        "deterministic-test-inputs": {
+          "status": "reference",
+          "evidence": ["ROADMAP.production.md"]
+        }
+      }
+    },
+    "keystone-unix-listener": {
+      "profiles": {
+        "identity-guarded-private-listener": {
+          "status": "qualified",
+          "evidence": ["docs/private-unix-listener.md"]
+        }
+      }
+    }
+  }
+}

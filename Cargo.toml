@@ -3,6 +3,7 @@ members = [
     "crates/keystone-bounds",
     "crates/keystone-codec",
     "crates/keystone-effects",
+    "crates/keystone-framing",
     "crates/keystone-storage",
     "crates/keystone-storage-memory",
     "crates/keystone-storage-directory",
@@ -11,6 +12,7 @@ members = [
     "crates/keystone-redact",
     "crates/keystone-lifecycle",
     "crates/keystone-testkit",
+    "crates/keystone-unix-listener",
 ]
 resolver = "3"
 exclude = ["qualification/chronos-moira"]

@@ -1,5 +1,8 @@
 //! Allocation-conscious bounded codec helpers.
 
+#[cfg(feature = "qualification")]
+pub mod qualification;
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DecodeLimits {
     pub max_input_bytes: usize,

@@ -8,6 +8,12 @@ repository.workspace = true
 publish.workspace = true
 description = "Mechanism-level storage protocols and evidence"
 
+[features]
+default = []
+# Candidate contracts are compiled only for explicit comparison work. They are
+# not part of Keystone's qualified default storage profile.
+incubating-append-blob = []
+
 [dependencies]
 
 [lints]

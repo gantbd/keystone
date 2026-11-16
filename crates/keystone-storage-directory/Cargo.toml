@@ -6,10 +6,11 @@ rust-version.workspace = true
 license.workspace = true
 repository.workspace = true
 publish.workspace = true
-description = "Scaffold for a qualified directory storage adapter"
+description = "Bounded exclusive local directory checkpoint adapter"
 
 [dependencies]
 keystone-storage = { version = "=0.0.1", path = "../keystone-storage" }
+rustix = { version = "=1.1.4", features = ["fs", "process"] }
 
 [lints]
 workspace = true

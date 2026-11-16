@@ -1,10 +1,12 @@
-//! Placeholder for a future qualified directory checkpoint adapter.
+//! One bounded checkpoint register per private local Unix directory.
 //!
-//! No filesystem implementation or durability claim exists in this crate yet.
+//! Explicit creation never adopts an existing directory; recovery never creates
+//! missing state. An OS lock lives for the store's lifetime. Publication stages,
+//! synchronizes, renames, and synchronizes the directory before acknowledgment.
+//! Trusted ancestry and a cooperative same-UID host are required. This is not an
+//! authenticated store, rollback witness, network-filesystem or power-loss proof.
 
-use keystone_storage::CheckpointStore;
-
-pub const PROJECT_STAGE: &str = "protocol-blocked-scaffold";
-
-/// Marker proving the scaffold is compiled against the selected protocol.
-pub fn protocol_marker<S: CheckpointStore>(_store: &S) {}
+#[cfg(unix)]
+mod unix;
+#[cfg(unix)]
+pub use unix::*;

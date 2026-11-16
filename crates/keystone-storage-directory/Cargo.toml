@@ -10,7 +10,7 @@ description = "Bounded exclusive local directory checkpoint adapter"
 
 [dependencies]
 keystone-storage = { version = "=0.0.1", path = "../keystone-storage" }
-rustix = { version = "=1.1.4", features = ["fs", "process"] }
+rustix = { version = "=1.1.6", features = ["fs", "process"] }
 
 [lints]
 workspace = true

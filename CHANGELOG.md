@@ -8,6 +8,7 @@ history remains the authoritative detailed change record.
 
 ## Unreleased
 
+- Updated the exact `rustix` pin to 1.1.6 to address RUSTSEC-2026-0486.
 - Added public repository contribution and security guidance.
 - Hardened the public CI checkout configuration.
 - Qualified shared local mechanisms and their bounded consumer profiles.
